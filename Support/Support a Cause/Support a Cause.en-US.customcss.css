@@ -1,0 +1,25 @@
+.phone-validation-error {
+    color: red;
+    display: none;
+}
+
+input.invalid {
+    border-color: red;
+}
+if (window.jQuery) {
+    (function ($) {
+        $(document).ready(function () {
+            $('#phone').on('change', function() {
+                var phoneRegex = /^\+?[1-9]\d{1,14}$/;
+                var phoneVal = $(this).val();
+                if (!phoneRegex.test(phoneVal)) {
+                    $(this).addClass('invalid');
+                    $('.phone-validation-error').show();
+                } else {
+                    $(this).removeClass('invalid');
+                    $('.phone-validation-error').hide();
+                }
+            });
+        });
+    }(window.jQuery));
+}
